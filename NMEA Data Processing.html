@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://127.0.0.1:5500/work%20index/navileafletNMEA.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMEA Data Processing</title>
+    <link rel="stylesheet" href="./NMEA Data Processing_files/leaflet.css">
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* Loading screen styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #loading-screen img {
+            width: 10vw;
+            height: 10vw;
+            max-width: 2cm;
+            max-height: 2cm;
+            margin-bottom: 20px;
+        }
+
+        #loading-screen h1 {
+            font-size: calc(18px + 2vw);
+            color: #333;
+            margin: 0;
+        }
+
+        #loading-screen p {
+            font-size: calc(14px + 1vw);
+            color: #666;
+            margin: 10px 0 0 0;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="display: none;">
+        <img src="./NMEA Data Processing_files/OIP.G90uRKiUWnqrFzgIjr0icgAAAA" alt="Map Services Logo">
+        <h1>ELENA MAP SERVICES</h1>
+        <p>PLEASE WAIT, LOADING</p>
+    </div>
+
+    <h1>NMEA Data Processing</h1>
+    <input type="file" id="fileInput" accept=".nmea,.txt">
+    <div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-193px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(-170px, -62px, 0px) scale(1);"><img alt="" src="./NMEA Data Processing_files/1.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(756px, 113px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/1(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1012px, 113px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/2.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(756px, 369px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/2(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1012px, 369px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/1(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(500px, 113px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/1(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1268px, 113px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/2(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(500px, 369px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/2(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1268px, 369px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/0.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(756px, -143px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/3.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(756px, 625px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/0(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(500px, -143px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/0(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1012px, -143px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/3(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(500px, 625px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/3(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1012px, 625px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/1(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(244px, 113px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/2(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(244px, 369px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/0(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(244px, -143px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/0(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1268px, -143px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/3(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(244px, 625px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/3(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1268px, 625px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/1(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-12px, 113px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/1(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1524px, 113px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/2(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-12px, 369px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/2(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1524px, 369px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/0(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-12px, -143px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/0(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1524px, -143px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/3(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-12px, 625px, 0px); opacity: 1;"><img alt="" src="./NMEA Data Processing_files/3(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(1524px, 625px, 0px); opacity: 1;"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(-170px, -63px, 0px) scale(0.5);"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(682.5px, 574px, 0px) scale(2);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="http://127.0.0.1:5500/work%20index/navileafletNMEA.html#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="http://127.0.0.1:5500/work%20index/navileafletNMEA.html#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © OpenStreetMap contributors</div></div></div></div>
+
+    <script src="./NMEA Data Processing_files/leaflet.js.download"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([0, 0], 2); 
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Function to hide the loading screen
+        function hideLoadingScreen() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.display = 'none';
+        }
+
+        // Process the uploaded NMEA file
+        function processFile(file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const content = event.target.result;
+                const lines = content.split('\n');
+
+                lines.forEach(line => {
+                    console.log('Processing line:', line);
+
+                    const nmeaParts = line.split(',');
+                    if (nmeaParts[0] === '$GPGGA' || nmeaParts[0] === '$GPGLL' || nmeaParts[0] === '$GNGGA' || nmeaParts[0] === '$GNGLL') {
+                        console.log('Valid NMEA sentence found:', nmeaParts);                
+
+                        const rawLat = nmeaParts[2];  
+                        if (rawLat) {
+                            const latDegrees = parseInt(rawLat.substring(0, 2));  
+                            const latMinutes = parseFloat(rawLat.substring(2));  
+                            const latitude = latDegrees + latMinutes / 60; 
+                            const lat = nmeaParts[3] === 'S' ? -latitude : latitude;  
+
+                            const rawLon = nmeaParts[4];  
+                            const lonDegrees = parseInt(rawLon.substring(0, 3));  
+                            const lonMinutes = parseFloat(rawLon.substring(3));   
+                            const longitude = lonDegrees + lonMinutes / 60;  
+                            const lon = nmeaParts[5] === 'W' ? -longitude : longitude;  
+
+                            console.log(`Latitude: ${lat}, Longitude: ${lon}`);  
+
+                            L.marker([lat, lon]).addTo(map)
+                                .bindPopup(`Latitude: ${lat}, Longitude: ${lon}`)
+                                .openPopup();
+
+                            map.setView([lat, lon], 13);
+                        } else {
+                            console.log('Invalid latitude data in sentence:', nmeaParts);
+                        }
+                    } else {
+                        console.log('Ignoring line, not a valid NMEA sentence:', line);
+                    }
+                });
+
+                // Hide the loading screen after the file is processed
+                hideLoadingScreen();
+            };
+            reader.readAsText(file);
+        }
+
+        // File input change event
+        document.getElementById('fileInput').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                processFile(file);
+            }
+        });
+
+        // Hide loading screen after 5 seconds if no file is uploaded
+        setTimeout(hideLoadingScreen, 5000);
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
