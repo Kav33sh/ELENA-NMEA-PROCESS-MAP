@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)http://127.0.0.1:5500/work%20index/navileafletNMEA.html -->
+
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
             width: 100%;
         }
 
-        /* Loading screen styles */
+       
         #loading-screen {
             position: fixed;
             top: 0;
@@ -55,7 +55,7 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
+    
     <div id="loading-screen" style="display: none;">
         <img src="./NMEA Data Processing_files/OIP.G90uRKiUWnqrFzgIjr0icgAAAA" alt="Map Services Logo">
         <h1>ELENA MAP SERVICES</h1>
@@ -68,20 +68,20 @@
 
     <script src="./NMEA Data Processing_files/leaflet.js.download"></script>
     <script>
-        // Initialize the map
+        
         const map = L.map('map').setView([0, 0], 2); 
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Function to hide the loading screen
+        
         function hideLoadingScreen() {
             const loadingScreen = document.getElementById('loading-screen');
             loadingScreen.style.display = 'none';
         }
 
-        // Process the uploaded NMEA file
+        
         function processFile(file) {
             const reader = new FileReader();
             reader.onload = function (event) {
@@ -123,13 +123,13 @@
                     }
                 });
 
-                // Hide the loading screen after the file is processed
+                
                 hideLoadingScreen();
             };
             reader.readAsText(file);
         }
 
-        // File input change event
+        
         document.getElementById('fileInput').addEventListener('change', function (event) {
             const file = event.target.files[0];
             if (file) {
@@ -137,12 +137,12 @@
             }
         });
 
-        // Hide loading screen after 5 seconds if no file is uploaded
+       
         setTimeout(hideLoadingScreen, 5000);
     </script>
-<!-- Code injected by live-server -->
+
 <script>
-	// <![CDATA[  <-- For SVG support
+	
 	if ('WebSocket' in window) {
 		(function () {
 			function refreshCSS() {
@@ -176,7 +176,7 @@
 	else {
 		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
-	// ]]>
+	
 </script>
 
 
